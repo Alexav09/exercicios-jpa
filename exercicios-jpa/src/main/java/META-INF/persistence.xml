@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+          http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+        version="2.2">
+	<persistence-unit name="exercicios-jpa">
+	
+		<provider>org.hibernate.Hibernate</provider>
+        <!-- Original <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> -->
+        <class>modelo.basico.Usuario</class>
+        
+        
+        <!-- Esse comando abaixo estava no arquivo original, mas aapresentou erro e na aula 334 ele não apareceu-->
+        <!-- <mapping-file>META-INF/consultas.xml</mapping-file> -->
+        
+        <properties>
+        
+        	<!-- aqui são os dados do banco de dados -->
+            <property name="javax.persistence.jdbc.driver"
+                	value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                	value="jdbc:mysql://localhost/curso_java"/>
+            <property name="javax.persistence.jdbc.user"
+                	value="root"/>
+            <property name="javax.persistence.jdbc.password"
+                	value="Tryumph2024"/>
+            <!-- Aqui temos as configurações específicas do Hibernate-->
+            <property name="hibernate.dialect"
+                	value="org.hibernate.dialect.MySQL57Dialect"/>
+                	<!-- O valor pode ser encontrado usando cmd + shift + T -->
+            <property name="hibernate.show_sql" 
+            		value="true"/>
+            <property name="hibernate.format_sql" 
+            		value="true"/>
+            		<!-- essa função abaixo cria as tabelas com base no código automaticamente-->
+            <property name="hibernate.hbm2ddl.auto" 
+            		value="update"/>
+        </properties>	
+	</persistence-unit>
+</persistence>
